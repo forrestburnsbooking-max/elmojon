@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>El Mojón · Cultural Space</title>
+
+    <!-- Google Fonts: Alegreya + Alegreya Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,400;0,700;1,400&family=Alegreya+Sans:wght@300;400;700&display=swap" rel="stylesheet" />
+
+    <style>
+        /* ===== RESET ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* ===== ROOT ===== */
+        :root {
+            --crema: #F8F2E6;
+            --marrón: #363529;
+            --terracota: #C57343;
+            --ocre: #B8834D;
+            --oliva: #8C8368;
+            --verde-pino: #3E4A34;
+
+            --font-serif: 'Alegreya', serif;
+            --font-sans: 'Alegreya Sans', sans-serif;
+        }
+
+        /* ===== BODY ===== */
+        body {
+            background-color: var(--crema);
+            color: var(--marrón);
+            font-family: var(--font-sans);
+            font-weight: 300;
+            line-height: 1.6;
+        }
+
+        /* ===== SCROLL SMOOTH ===== */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* ===== CONTAINER ===== */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* ===== HEADER / NAV ===== */
+        header {
+            padding: 20px 0;
+            border-bottom: 2px solid var(--ocre);
+            background-color: rgba(248, 242, 230, 0.92);
+            backdrop-filter: blur(4px);
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .logo {
+            font-family: var(--font-serif);
+            font-size: 28px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            color: var(--marrón);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .logo small {
+            font-family: var(--font-sans);
+            font-weight: 300;
+            font-size: 14px;
+            color: var(--oliva);
+            letter-spacing: 0.3px;
+        }
+
+        .nav {
+            display: flex;
+            gap: 24px;
+            flex-wrap: wrap;
+            font-family: var(--font-sans);
+            font-weight: 400;
+            font-size: 15px;
+        }
+
+        .nav a {
+            color: var(--marrón);
+            text-decoration: none;
+            transition: color 0.2s;
+            border-bottom: 1px solid transparent;
+            padding-bottom: 2px;
+        }
+
+        .nav a:hover {
+            color: var(--terracota);
+            border-bottom-color: var(--terracota);
+        }
+
+        /* ===== HERO ===== */
+        .hero {
+            padding: 80px 0 60px;
+            text-align: center;
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.2) 0%, transparent 100%);
+        }
+
+        .hero h1 {
+            font-family: var(--font-serif);
+            font-weight: 700;
+            font-size: clamp(44px, 10vw, 80px);
+            color: var(--marrón);
+            line-height: 1.1;
+        }
+
+        .hero h1 span {
+            color: var(--terracota);
+        }
+
+        .hero .sub {
+            font-family: var(--font-serif);
+            font-style: italic;
+            font-size: clamp(18px, 2.5vw, 28px);
+            color: var(--oliva);
+            margin-top: 12px;
+        }
+
+        .hero .cta-group {
+            margin-top: 32px;
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 40px;
+            font-family: var(--font-sans);
+            font-weight: 700;
+            font-size: 16px;
+            border: none;
+            border-radius: 40px;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            text-decoration: none;
+        }
+
+        .btn-primary {
+            background-color: var(--terracota);
+            color: #fff;
+        }
+
+        .btn-primary:hover {
+            background-color: #b05f34;
+            transform: scale(1.02);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--marrón);
+            border: 2px solid var(--marrón);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--marrón);
+            color: var(--crema);
+        }
+
+        /* ===== SECTION TITLES ===== */
+        .section-title {
+            font-family: var(--font-serif);
+            font-style: italic;
+            font-weight: 400;
+            font-size: 32px;
+            color: var(--marrón);
+            margin-bottom: 8px;
+        }
+
+        .section-sub {
+            font-size: 18px;
+            color: var(--oliva);
+            margin-bottom: 40px;
+        }
+
+        /* ===== QUÉ HACEMOS ===== */
+        .que-hacemos {
+            padding: 70px 0;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 32px;
+            margin-top: 20px;
+        }
+
+        .card {
+            background-color: rgba(255, 255, 255, 0.4);
+            padding: 32px 24px;
+            border-radius: 20px;
+            border-left: 6px solid var(--terracota);
+            transition: background 0.2s;
+        }
+
+        .card:hover {
+            background-color: rgba(255, 255, 255, 0.7);
+        }
+
+        .card h3 {
+            font-family: var(--font-serif);
+            font-weight: 700;
+            font-size: 22px;
+            color: var(--marrón);
+        }
+
+        .card p {
+            margin-top: 8px;
+            color: var(--oliva);
+            font-size: 15px;
+        }
+
+        .card .tag {
+            display: inline-block;
+            margin-top: 12px;
+            font-family: var(--font-sans);
+            font-weight: 700;
+            font-size: 12px;
+            letter-spacing: 0.8px;
+            text-transform: uppercase;
+            color: var(--verde-pino);
+        }
+
+        /* ===== ENCUENTROS ===== */
+        .encuentros {
+            padding: 70px 0;
+            border-top: 1px solid rgba(54, 53, 41, 0.1);
+        }
+
+        .event-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 28px;
+        }
+
+        .event-card {
+            background: #fff;
+            padding: 28px 24px;
+            border-radius: 20px;
+            box-shadow: 0 4px 16px rgba(54, 53, 41, 0.06);
+            border-bottom: 4px solid var(--ocre);
+            transition: transform 0.2s;
+        }
+
+        .event-card:hover {
+            transform: translateY(-4px);
+        }
+
+        .event-card .date {
+            font-family: var(--font-sans);
+            font-weight: 700;
+            font-size: 14px;
+            color: var(--terracota);
+            text-transform: uppercase;
+            letter-spacing: 0.6px;
+        }
+
+        .event-card h4 {
+            font-family: var(--font-serif);
+            font-weight: 700;
+            font-size: 22px;
+            margin: 6px 0 4px;
+        }
+
+        .event-card .meta {
+            color: var(--oliva);
+            font-size: 14px;
+        }
+
+        .event-card .label {
+            display: inline-block;
+            margin-top: 12px;
+            background-color: var(--verde-pino);
+            color: #fff;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            padding: 4px 14px;
+            border-radius: 20px;
+        }
+
+        /* ===== ESPACIO ===== */
+        .espacio {
+            padding: 70px 0;
+            background-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .espacio-inner {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+            align-items: center;
+        }
+
+        .espacio-inner h2 {
+            font-family: var(--font-serif);
+            font-weight: 700;
+            font-size: 34px;
+        }
+
+        .espacio-inner p {
+            color: var(--oliva);
+            font-size: 17px;
+            margin-top: 12px;
+        }
+
+        .espacio-inner .btn {
+            margin-top: 20px;
+        }
+
+        .espacio-img-placeholder {
+            background-color: var(--ocre);
+            height: 280px;
+            border-radius: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-family: var(--font-serif);
+            font-style: italic;
+            font-size: 20px;
+            background-image: linear-gradient(135deg, var(--ocre), var(--terracota));
+            opacity: 0.7;
+        }
+
+        /* ===== HAZTE SOCIO ===== */
+        .socio {
+            padding: 70px 0;
+            text-align: center;
+            background-color: var(--marrón);
+            color: var(--crema);
+            border-radius: 40px 40px 0 0;
+            margin-top: 20px;
+        }
+
+        .socio h2 {
+            font-family: var(--font-serif);
+            font-weight: 700;
+            font-size: 38px;
+        }
+
+        .socio p {
+            font-size: 18px;
+            color: rgba(248, 242, 230, 0.8);
+            margin: 12px 0 28px;
+        }
+
+        .socio .btn-primary {
+            background-color: var(--terracota);
+            font-size: 20px;
+            padding: 16px 48px;
+        }
+
+        .socio .btn-primary:hover {
+            background-color: #d48454;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            padding: 40px 0 24px;
+            background-color: var(--marrón);
+            color: rgba(248, 242, 230, 0.6);
+            border-top: 1px solid rgba(248, 242, 230, 0.08);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 32px;
+        }
+
+        .footer-grid h4 {
+            font-family: var(--font-serif);
+            font-weight: 700;
+            color: var(--crema);
+            margin-bottom: 8px;
+        }
+
+        .footer-grid p,
+        .footer-grid a {
+            font-size: 14px;
+            color: rgba(248, 242, 230, 0.6);
+            text-decoration: none;
+            display: block;
+            margin-top: 4px;
+        }
+
+        .footer-grid a:hover {
+            color: var(--terracota);
+        }
+
+        .footer-bottom {
+            margin-top: 32px;
+            padding-top: 16px;
+            border-top: 1px solid rgba(248, 242, 230, 0.08);
+            font-size: 13px;
+            text-align: center;
+            color: rgba(248, 242, 230, 0.4);
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .header-inner {
+                flex-direction: column;
+                align-items: stretch;
+                gap: 12px;
+            }
+
+            .nav {
+                justify-content: center;
+                gap: 14px;
+                font-size: 14px;
+            }
+
+            .hero {
+                padding: 50px 0 40px;
+            }
+
+            .espacio-inner {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+
+            .socio h2 {
+                font-size: 28px;
+            }
+
+            .section-title {
+                font-size: 26px;
+            }
+
+            .grid-3 {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo {
+                font-size: 22px;
+            }
+            .nav {
+                gap: 12px;
+                font-size: 13px;
+                flex-wrap: wrap;
+            }
+            .hero h1 {
+                font-size: 34px;
+            }
+            .btn {
+                padding: 12px 28px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ===== HEADER ===== -->
+    <header>
+        <div class="container header-inner">
+            <a href="#" class="logo">
+                El Mojón
+                <small>· Cultural Space</small>
+            </a>
+            <nav class="nav">
+                <a href="#que-hacemos">Qué hacemos</a>
+                <a href="#encuentros">Encuentros</a>
+                <a href="#espacio">Espacio</a>
+                <a href="#socio">Hazte socio</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ===== HERO ===== -->
+    <section class="hero">
+        <div class="container">
+            <h1>El <span>Mojón</span></h1>
+            <p class="sub">Un lugar donde el arte y la lengua se encuentran</p>
+            <div class="cta-group">
+                <a href="#encuentros" class="btn btn-primary">Próximos encuentros</a>
+                <a href="#socio" class="btn btn-outline">Hazte socio — 5€</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== QUÉ HACEMOS ===== -->
+    <section id="que-hacemos" class="que-hacemos">
+        <div class="container">
+            <h2 class="section-title">Qué hacemos</h2>
+            <p class="section-sub">Un hub cultural vivo en Arona, Tenerife</p>
+            <div class="grid-3">
+                <div class="card">
+                    <h3>Exposiciones</h3>
+                    <p>Muestras de artistas locales e internacionales en un espacio íntimo con luz natural.</p>
+                    <span class="tag">Arte</span>
+                </div>
+                <div class="card">
+                    <h3>Encuentros</h3>
+                    <p>Prácticas de español, charlas, música y performance. El espacio se transforma.</p>
+                    <span class="tag">Comunidad</span>
+                </div>
+                <div class="card">
+                    <h3>Espacio</h3>
+                    <p>Un rincón con alma de acuarela en Tenerife. Para crear, compartir y sentir.</p>
+                    <span class="tag">Hogar</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== ENCUENTROS ===== -->
+    <section id="encuentros" class="encuentros">
+        <div class="container">
+            <h2 class="section-title">Encuentros bajo el volcán</h2>
+            <p class="section-sub">Próximas citas en el espacio</p>
+            <div class="event-grid">
+                <div class="event-card">
+                    <div class="date">Jueves 14 · 19:00</div>
+                    <h4>Práctica de español</h4>
+                    <p class="meta">Barra de socios — café / caña</p>
+                    <span class="label">Encuentros</span>
+                </div>
+                <div class="event-card">
+                    <div class="date">Sábado 16 · 18:00</div>
+                    <h4>Inauguración · Muestra colectiva</h4>
+                    <p class="meta">Artistas: Lucía, Marco, Elena</p>
+                    <span class="label">Exposición</span>
+                </div>
+                <div class="event-card">
+                    <div class="date">Miércoles 20 · 20:00</div>
+                    <h4>Música en vivo · Marimba & loop</h4>
+                    <p class="meta">Entrada libre — aforo limitado</p>
+                    <span class="label">Música</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== ESPACIO ===== -->
+    <section id="espacio" class="espacio">
+        <div class="container espacio-inner">
+            <div>
+                <h2>El espacio</h2>
+                <p>
+                    Un lugar pensado para el encuentro. Luz de atardecer, paredes de cal,
+                    una mesa larga para compartir. En Arona, Tenerife, con el volcán al fondo.
+                </p>
+                <p>
+                    Aquí las exposiciones conviven con las charlas, la música y el español
+                    que se aprende entre risas.
+                </p>
+                <a href="#socio" class="btn btn-primary">Visítanos</a>
+            </div>
+            <div class="espacio-img-placeholder">
+                ⟡ Tenerife · volcán al fondo
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== HAZTE SOCIO ===== -->
+    <section id="socio" class="socio">
+        <div class="container">
+            <h2>Hazte socio</h2>
+            <p>Apoya el espacio y forma parte de la comunidad.</p>
+            <a href="#" class="btn btn-primary">Socio — 5€</a>
+            <p style="margin-top:20px; font-size:14px; opacity:0.6;">
+                Abierto a socios temporales · barra de socios incluida
+            </p>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h4>El Mojón</h4>
+                    <p>Hub Cultural · Arona, Tenerife</p>
+                </div>
+                <div>
+                    <h4>Contacto</h4>
+                    <a href="#">hola@elmojon.art</a>
+                    <a href="#">+34 123 456 789</a>
+                </div>
+                <div>
+                    <h4>Horario</h4>
+                    <p>Mar–Sáb: 17:00 – 22:00</p>
+                    <p>Dom–Lun: cerrado</p>
+                </div>
+                <div>
+                    <h4>Redes</h4>
+                    <a href="#">Instagram</a>
+                    <a href="#">YouTube</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                © 2026 El Mojón · Cultural Space
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

@@ -1,40 +1,837 @@
-<!-- ===== ART & RETREAT CENTER ===== -->
-<section id="que-hacemos" class="que-hacemos">
-    <div class="container">
-        <div class="hero-brand">
-            <div class="hero-brand-logo">
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>El Mojón · Art & Retreat Center</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,400;0,700;1,400&family=Alegreya+Sans:wght@300;400;500;700&display=swap" rel="stylesheet" />
+
+    <style>
+        /* ===== RESET ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --crema: #F8F2E6;
+            --marrón: #363529;
+            --terracota: #C57343;
+            --ocre: #B8834D;
+            --oliva: #8C8368;
+            --verde-pino: #3E4A34;
+            --font-serif: 'Alegreya', serif;
+            --font-sans: 'Alegreya Sans', sans-serif;
+        }
+
+        body {
+            background-color: var(--crema);
+            color: var(--marrón);
+            font-family: var(--font-sans);
+            font-weight: 300;
+            line-height: 1.6;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* ===== HEADER ===== */
+        header {
+            padding: 16px 0;
+            border-bottom: 2px solid var(--ocre);
+            background-color: rgba(248, 242, 230, 0.92);
+            backdrop-filter: blur(4px);
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .logo img {
+            height: 60px;
+            width: auto;
+            display: block;
+        }
+
+        .logo-text {
+            font-family: var(--font-serif);
+            font-size: 14px;
+            font-weight: 300;
+            color: var(--oliva);
+            letter-spacing: 0.5px;
+            line-height: 1.2;
+        }
+
+        .logo-text strong {
+            font-weight: 700;
+            color: var(--marrón);
+            display: block;
+            font-size: 16px;
+        }
+
+        .nav {
+            display: flex;
+            gap: 24px;
+            flex-wrap: wrap;
+            font-family: var(--font-sans);
+            font-weight: 400;
+            font-size: 15px;
+        }
+
+        .nav a {
+            color: var(--marrón);
+            text-decoration: none;
+            transition: color 0.2s;
+            border-bottom: 1px solid transparent;
+            padding-bottom: 2px;
+        }
+
+        .nav a:hover {
+            color: var(--terracota);
+            border-bottom-color: var(--terracota);
+        }
+
+        /* ===== HERO ===== */
+        .hero {
+            padding: 60px 0 40px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-family: var(--font-serif);
+            font-weight: 700;
+            font-size: clamp(44px, 10vw, 80px);
+            color: var(--marrón);
+            line-height: 1.1;
+        }
+
+        .hero h1 span {
+            color: var(--terracota);
+        }
+
+        .hero .sub {
+            font-family: var(--font-serif);
+            font-style: italic;
+            font-size: clamp(18px, 2.5vw, 28px);
+            color: var(--oliva);
+            margin-top: 12px;
+        }
+
+        .hero .cta-group {
+            margin-top: 32px;
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 40px;
+            font-family: var(--font-sans);
+            font-weight: 700;
+            font-size: 16px;
+            border: none;
+            border-radius: 40px;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            text-decoration: none;
+        }
+
+        .btn-primary {
+            background-color: var(--terracota);
+            color: #fff;
+        }
+
+        .btn-primary:hover {
+            background-color: #b05f34;
+            transform: scale(1.02);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--marrón);
+            border: 2px solid var(--marrón);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--marrón);
+            color: var(--crema);
+        }
+
+        /* ===== SECTION TITLES ===== */
+        .section-title {
+            font-family: var(--font-serif);
+            font-style: italic;
+            font-weight: 400;
+            font-size: 32px;
+            color: var(--marrón);
+            margin-bottom: 8px;
+        }
+
+        .section-sub {
+            font-size: 18px;
+            color: var(--oliva);
+            margin-bottom: 40px;
+        }
+
+        /* ===== ART & RETREAT CENTER БЛОК ===== */
+        .que-hacemos {
+            padding: 40px 0 70px;
+        }
+
+        .hero-brand {
+            text-align: center;
+            padding: 20px 0 10px;
+        }
+
+        .hero-brand-logo {
+            margin-bottom: 24px;
+        }
+
+        .hero-brand-logo img {
+            max-height: 120px;
+            width: auto;
+        }
+
+        .hero-brand .section-title {
+            font-size: 42px;
+            margin-bottom: 16px;
+        }
+
+        .hero-brand .section-title span {
+            color: var(--terracota);
+        }
+
+        .brand-description {
+            max-width: 720px;
+            margin: 0 auto 32px;
+            font-size: 20px;
+            line-height: 1.7;
+            color: var(--oliva);
+            font-family: var(--font-serif);
+            font-style: italic;
+        }
+
+        .brand-description strong {
+            color: var(--marrón);
+            font-style: normal;
+        }
+
+        .brand-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 16px 32px;
+            margin-bottom: 36px;
+        }
+
+        .brand-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-family: var(--font-sans);
+            font-weight: 400;
+            font-size: 16px;
+            color: var(--marrón);
+            background: rgba(255, 255, 255, 0.5);
+            padding: 8px 18px 8px 14px;
+            border-radius: 40px;
+            backdrop-filter: blur(2px);
+            border: 1px solid rgba(54, 53, 41, 0.06);
+        }
+
+        .brand-icon {
+            font-size: 22px;
+            line-height: 1;
+        }
+
+        .brand-label {
+            font-weight: 500;
+        }
+
+        .brand-cta {
+            margin-top: 8px;
+        }
+
+        /* ===== ОПЫТЫ НА ВУЛКАНЕ ===== */
+        .experiencias {
+            padding: 70px 0;
+            background-color: rgba(255, 255, 255, 0.2);
+            border-top: 1px solid rgba(54, 53, 41, 0.08);
+            border-bottom: 1px solid rgba(54, 53, 41, 0.08);
+        }
+
+        .exp-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 28px;
+        }
+
+        .exp-card {
+            background: #fff;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 4px 16px rgba(54, 53, 41, 0.06);
+            border-bottom: 4px solid var(--terracota);
+            transition: transform 0.2s;
+        }
+
+        .exp-card:hover {
+            transform: translateY(-6px);
+        }
+
+        .exp-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .exp-card .exp-body {
+            padding: 24px 24px 28px;
+        }
+
+        .exp-card .emoji-big {
+            font-size: 28px;
+            display: inline-block;
+            margin-bottom: 4px;
+        }
+
+        .exp-card h4 {
+            font-family: var(--font-serif);
+            font-weight: 700;
+            font-size: 20px;
+            color: var(--marrón);
+            margin-top: 2px;
+        }
+
+        .exp-card p {
+            color: var(--oliva);
+            font-size: 14px;
+            margin-top: 6px;
+        }
+
+        .exp-card .exp-tag {
+            display: inline-block;
+            margin-top: 12px;
+            background-color: var(--ocre);
+            color: #fff;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            padding: 4px 14px;
+            border-radius: 20px;
+        }
+
+        .exp-card .exp-tag.tea { background-color: #6B8E6B; }
+        .exp-card .exp-tag.yoga { background-color: #B8834D; }
+        .exp-card .exp-tag.food { background-color: #C57343; }
+        .exp-card .exp-tag.film { background-color: #3E4A34; }
+
+        /* ===== ВСТРЕЧИ ПОД ВУЛКАНОМ ===== */
+        .encuentros {
+            padding: 70px 0;
+        }
+
+        .event-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 28px;
+        }
+
+        .event-card {
+            background: #fff;
+            padding: 28px 24px;
+            border-radius: 20px;
+            box-shadow: 0 4px 16px rgba(54, 53, 41, 0.06);
+            border-bottom: 4px solid var(--ocre);
+            transition: transform 0.2s;
+        }
+
+        .event-card:hover {
+            transform: translateY(-4px);
+        }
+
+        .event-card .date {
+            font-family: var(--font-sans);
+            font-weight: 700;
+            font-size: 14px;
+            color: var(--terracota);
+            text-transform: uppercase;
+            letter-spacing: 0.6px;
+        }
+
+        .event-card h4 {
+            font-family: var(--font-serif);
+            font-weight: 700;
+            font-size: 22px;
+            margin: 6px 0 4px;
+        }
+
+        .event-card .meta {
+            color: var(--oliva);
+            font-size: 14px;
+        }
+
+        .event-card .label {
+            display: inline-block;
+            margin-top: 12px;
+            background-color: var(--verde-pino);
+            color: #fff;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            padding: 4px 14px;
+            border-radius: 20px;
+        }
+
+        /* ===== ПРОСТРАНСТВО ===== */
+        .espacio {
+            padding: 70px 0;
+            background-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .espacio-inner {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+            align-items: center;
+        }
+
+        .espacio-inner h2 {
+            font-family: var(--font-serif);
+            font-weight: 700;
+            font-size: 34px;
+        }
+
+        .espacio-inner p {
+            color: var(--oliva);
+            font-size: 17px;
+            margin-top: 12px;
+        }
+
+        .espacio-inner .btn {
+            margin-top: 20px;
+        }
+
+        .espacio-img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 24px;
+            box-shadow: 0 4px 16px rgba(54, 53, 41, 0.08);
+        }
+
+        /* ===== СТАТЬ УЧАСТНИКОМ ===== */
+        .socio {
+            padding: 70px 0;
+            text-align: center;
+            background-color: var(--marrón);
+            color: var(--crema);
+            border-radius: 40px 40px 0 0;
+            margin-top: 20px;
+        }
+
+        .socio h2 {
+            font-family: var(--font-serif);
+            font-weight: 700;
+            font-size: 38px;
+        }
+
+        .socio p {
+            font-size: 18px;
+            color: rgba(248, 242, 230, 0.8);
+            margin: 12px 0 28px;
+        }
+
+        .socio .btn-primary {
+            background-color: var(--terracota);
+            font-size: 20px;
+            padding: 16px 48px;
+        }
+
+        .socio .btn-primary:hover {
+            background-color: #d48454;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            padding: 40px 0 24px;
+            background-color: var(--marrón);
+            color: rgba(248, 242, 230, 0.6);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 32px;
+        }
+
+        .footer-grid h4 {
+            font-family: var(--font-serif);
+            font-weight: 700;
+            color: var(--crema);
+            margin-bottom: 8px;
+        }
+
+        .footer-grid p,
+        .footer-grid a {
+            font-size: 14px;
+            color: rgba(248, 242, 230, 0.6);
+            text-decoration: none;
+            display: block;
+            margin-top: 4px;
+        }
+
+        .footer-grid a:hover {
+            color: var(--terracota);
+        }
+
+        .footer-bottom {
+            margin-top: 32px;
+            padding-top: 16px;
+            border-top: 1px solid rgba(248, 242, 230, 0.08);
+            font-size: 13px;
+            text-align: center;
+            color: rgba(248, 242, 230, 0.4);
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .header-inner {
+                flex-direction: column;
+                align-items: stretch;
+                gap: 12px;
+            }
+            .nav {
+                justify-content: center;
+                gap: 14px;
+                font-size: 14px;
+            }
+            .hero {
+                padding: 40px 0 30px;
+            }
+            .espacio-inner {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+            .socio h2 {
+                font-size: 28px;
+            }
+            .section-title {
+                font-size: 26px;
+            }
+            .logo img {
+                height: 48px;
+            }
+            .logo-text {
+                font-size: 12px;
+            }
+            .logo-text strong {
+                font-size: 14px;
+            }
+            .espacio-img {
+                height: 220px;
+            }
+            .hero-brand .section-title {
+                font-size: 30px;
+            }
+            .brand-description {
+                font-size: 17px;
+                padding: 0 8px;
+            }
+            .brand-grid {
+                gap: 12px 16px;
+            }
+            .brand-item {
+                font-size: 14px;
+                padding: 6px 14px 6px 10px;
+            }
+            .hero-brand-logo img {
+                max-height: 80px;
+            }
+            .exp-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .nav {
+                gap: 12px;
+                font-size: 13px;
+            }
+            .hero h1 {
+                font-size: 34px;
+            }
+            .btn {
+                padding: 12px 28px;
+                font-size: 14px;
+            }
+            .logo img {
+                height: 40px;
+            }
+            .exp-card img {
+                height: 160px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ===== HEADER ===== -->
+    <header>
+        <div class="container header-inner">
+            <a href="#" class="logo">
                 <img src="logo.jpg" alt="El Mojón — Art & Retreat Center" />
-            </div>
-            <h2 class="section-title">Art & Retreat Center <span>El Mojón</span></h2>
-            <p class="brand-description">
-                У подножия вулкана Эль-Мохон, где лава встречается с небом, 
-                мы создали пространство для тех, кто ищет <strong>смысл дня в созидании</strong>.
-            </p>
-            <div class="brand-grid">
-                <div class="brand-item">
-                    <span class="brand-icon">🎨</span>
-                    <span class="brand-label">Арт-воркшопы</span>
-                </div>
-                <div class="brand-item">
-                    <span class="brand-icon">🍵</span>
-                    <span class="brand-label">Чайные и кофейные церемонии</span>
-                </div>
-                <div class="brand-item">
-                    <span class="brand-icon">🧘</span>
-                    <span class="brand-label">Йога и физические практики</span>
-                </div>
-                <div class="brand-item">
-                    <span class="brand-icon">☕</span>
-                    <span class="brand-label">Language Cafe</span>
-                </div>
-                <div class="brand-item">
-                    <span class="brand-icon">🎬</span>
-                    <span class="brand-label">Кинопоказы</span>
-                </div>
-            </div>
-            <div class="brand-cta">
-                <a href="#experiencias" class="btn btn-primary">Найти свой опыт</a>
+                <span class="logo-text">
+                    <strong>el Mojón</strong>
+                    ART & RETREAT CENTER
+                </span>
+            </a>
+            <nav class="nav">
+                <a href="#que-hacemos">О центре</a>
+                <a href="#experiencias">Опыты</a>
+                <a href="#encuentros">Встречи</a>
+                <a href="#espacio">Пространство</a>
+                <a href="#socio">Стать участником</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ===== HERO ===== -->
+    <section class="hero">
+        <div class="container">
+            <h1>El <span>Mojón</span></h1>
+            <p class="sub">Место, где искусство, природа и встречи сливаются воедино</p>
+            <div class="cta-group">
+                <a href="#experiencias" class="btn btn-primary">Попробовать опыт</a>
+                <a href="#socio" class="btn btn-outline">Стать участником — 5€</a>
             </div>
         </div>
-    </div>
-</section>
+    </section>
+
+    <!-- ===== ART & RETREAT CENTER ===== -->
+    <section id="que-hacemos" class="que-hacemos">
+        <div class="container">
+            <div class="hero-brand">
+                <div class="hero-brand-logo">
+                    <img src="logo.jpg" alt="El Mojón — Art & Retreat Center" />
+                </div>
+                <h2 class="section-title">Art & Retreat Center <span>El Mojón</span></h2>
+                <p class="brand-description">
+                    У подножия вулкана Эль-Мохон, где лава встречается с небом, 
+                    мы создали пространство для тех, кто ищет <strong>смысл дня в созидании</strong>.
+                </p>
+                <div class="brand-grid">
+                    <div class="brand-item">
+                        <span class="brand-icon">🎨</span>
+                        <span class="brand-label">Арт-воркшопы</span>
+                    </div>
+                    <div class="brand-item">
+                        <span class="brand-icon">🍵</span>
+                        <span class="brand-label">Чайные и кофейные церемонии</span>
+                    </div>
+                    <div class="brand-item">
+                        <span class="brand-icon">🧘</span>
+                        <span class="brand-label">Йога и физические практики</span>
+                    </div>
+                    <div class="brand-item">
+                        <span class="brand-icon">☕</span>
+                        <span class="brand-label">Language Cafe</span>
+                    </div>
+                    <div class="brand-item">
+                        <span class="brand-icon">🎬</span>
+                        <span class="brand-label">Кинопоказы</span>
+                    </div>
+                </div>
+                <div class="brand-cta">
+                    <a href="#experiencias" class="btn btn-primary">Найти свой опыт</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== ОПЫТЫ НА ВУЛКАНЕ ===== -->
+    <section id="experiencias" class="experiencias">
+        <div class="container">
+            <h2 class="section-title">Опыты на вулкане</h2>
+            <p class="section-sub">Занятия, чтобы соединиться с пейзажем, телом и вкусом</p>
+            <div class="exp-grid">
+
+                <div class="exp-card">
+                    <img src="https://images.unsplash.com/photo-1544787219-7f47ccb76574?w=800&h=600&fit=crop" alt="Чайная церемония" />
+                    <div class="exp-body">
+                        <span class="emoji-big">🍵</span>
+                        <h4>Чайная церемония на вулкане</h4>
+                        <p>Пауза на закате. Чай подаётся с уважением, среди вулканических камней и тишины.</p>
+                        <span class="exp-tag tea">Чай · связь</span>
+                    </div>
+                </div>
+
+                <div class="exp-card">
+                    <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=800&h=600&fit=crop" alt="Йога на рассвете" />
+                    <div class="exp-body">
+                        <span class="emoji-big">🧘</span>
+                        <h4>Йога на рассвете</h4>
+                        <p>Мягкая практика с видом на Тейде. Солнце встаёт — тело просыпается.</p>
+                        <span class="exp-tag yoga">Йога · природа</span>
+                    </div>
+                </div>
+
+                <div class="exp-card">
+                    <img src="https://images.unsplash.com/photo-1533089860892-a7c6f0a88666?w=800&h=600&fit=crop" alt="Эко-завтрак" />
+                    <div class="exp-body">
+                        <span class="emoji-big">🥞</span>
+                        <h4>Эко-завтрак</h4>
+                        <p>Местные продукты, домашний хлеб, сезонные фрукты и мёд с острова. С видом.</p>
+                        <span class="exp-tag food">Еда · устойчивость</span>
+                    </div>
+                </div>
+
+                <div class="exp-card">
+                    <img src="https://images.unsplash.com/photo-1587312923307-c1d0cc5ba9b4?w=800&h=600&fit=crop" alt="Карамельный мастер-класс" />
+                    <div class="exp-body">
+                        <span class="emoji-big">🍮</span>
+                        <h4>Мастер-класс по карамели</h4>
+                        <p>Учимся делать карамель из козьего молока и тростникового сахара. Сладко и душевно.</p>
+                        <span class="exp-tag food">Кулинария · традиция</span>
+                    </div>
+                </div>
+
+                <div class="exp-card">
+                    <img src="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=800&h=600&fit=crop" alt="Канарское кино" />
+                    <div class="exp-body">
+                        <span class="emoji-big">🎬</span>
+                        <h4>Канарское кино · короткометражки</h4>
+                        <p>Показ короткометражных фильмов, снятых на островах. Истории о море, вулкане и людях.</p>
+                        <span class="exp-tag film">Кино · культура</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== ВСТРЕЧИ ПОД ВУЛКАНОМ ===== -->
+    <section id="encuentros" class="encuentros">
+        <div class="container">
+            <h2 class="section-title">Встречи под вулканом</h2>
+            <p class="section-sub">Ближайшие события в пространстве</p>
+            <div class="event-grid">
+                <div class="event-card">
+                    <div class="date">Четверг 14 · 19:00</div>
+                    <h4>Практика испанского</h4>
+                    <p class="meta">Бар для участников — кофе / пиво</p>
+                    <span class="label">Встречи</span>
+                </div>
+                <div class="event-card">
+                    <div class="date">Суббота 16 · 18:00</div>
+                    <h4>Открытие · Групповая выставка</h4>
+                    <p class="meta">Художники: Лусия, Марко, Елена</p>
+                    <span class="label">Выставка</span>
+                </div>
+                <div class="event-card">
+                    <div class="date">Среда 20 · 20:00</div>
+                    <h4>Живая музыка · Маримба и петли</h4>
+                    <p class="meta">Вход свободный — количество мест ограничено</p>
+                    <span class="label">Музыка</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== ПРОСТРАНСТВО ===== -->
+    <section id="espacio" class="espacio">
+        <div class="container espacio-inner">
+            <div>
+                <h2>Пространство</h2>
+                <p>
+                    Место, созданное для встреч. Свет заката, стены из известняка,
+                    длинный стол для общения. В Ароне, Тенерифе, с вулканом на горизонте.
+                </p>
+                <p>
+                    Здесь выставки соседствуют с беседами, музыкой, чаем и тишиной.
+                </p>
+                <a href="#socio" class="btn btn-primary">Посетить нас</a>
+            </div>
+            <img 
+                src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=800&h=600&fit=crop" 
+                alt="Пространство El Mojón" 
+                class="espacio-img"
+            />
+        </div>
+    </section>
+
+    <!-- ===== СТАТЬ УЧАСТНИКОМ ===== -->
+    <section id="socio" class="socio">
+        <div class="container">
+            <h2>Стать участником</h2>
+            <p>Поддержите пространство и станьте частью сообщества.</p>
+            <a href="#" class="btn btn-primary">Участник — 5€</a>
+            <p style="margin-top:20px; font-size:14px; opacity:0.6;">
+                Открыто для временных участников · бар для участников включён
+            </p>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h4>El Mojón</h4>
+                    <p>Art & Retreat Center · Арона, Тенерифе</p>
+                </div>
+                <div>
+                    <h4>Контакты</h4>
+                    <a href="#">hola@elmojon.art</a>
+                    <a href="#">+34 123 456 789</a>
+                </div>
+                <div>
+                    <h4>Часы работы</h4>
+                    <p>Вт–Сб: 17:00 – 22:00</p>
+                    <p>Вс–Пн: выходной</p>
+                </div>
+                <div>
+                    <h4>Соцсети</h4>
+                    <a href="#">Instagram</a>
+                    <a href="#">YouTube</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                © 2026 El Mojón · Art & Retreat Center
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

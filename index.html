@@ -238,10 +238,82 @@
             color: var(--verde-pino);
         }
 
+        /* ===== EXPERIENCIAS (НОВАЯ СЕКЦИЯ) ===== */
+        .experiencias {
+            padding: 70px 0;
+            background-color: rgba(255, 255, 255, 0.2);
+            border-top: 1px solid rgba(54, 53, 41, 0.08);
+            border-bottom: 1px solid rgba(54, 53, 41, 0.08);
+        }
+
+        .exp-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 28px;
+        }
+
+        .exp-card {
+            background: #fff;
+            padding: 28px 24px;
+            border-radius: 20px;
+            box-shadow: 0 4px 16px rgba(54, 53, 41, 0.06);
+            border-bottom: 4px solid var(--terracota);
+            transition: transform 0.2s;
+            position: relative;
+        }
+
+        .exp-card:hover {
+            transform: translateY(-6px);
+        }
+
+        .exp-card .emoji-big {
+            font-size: 36px;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .exp-card h4 {
+            font-family: var(--font-serif);
+            font-weight: 700;
+            font-size: 20px;
+            color: var(--marrón);
+        }
+
+        .exp-card p {
+            color: var(--oliva);
+            font-size: 14px;
+            margin-top: 6px;
+        }
+
+        .exp-card .exp-tag {
+            display: inline-block;
+            margin-top: 12px;
+            background-color: var(--ocre);
+            color: #fff;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            padding: 4px 14px;
+            border-radius: 20px;
+        }
+
+        .exp-card .exp-tag.tea {
+            background-color: #6B8E6B;
+        }
+        .exp-card .exp-tag.yoga {
+            background-color: #B8834D;
+        }
+        .exp-card .exp-tag.food {
+            background-color: #C57343;
+        }
+        .exp-card .exp-tag.film {
+            background-color: #3E4A34;
+        }
+
         /* ===== ENCUENTROS ===== */
         .encuentros {
             padding: 70px 0;
-            border-top: 1px solid rgba(54, 53, 41, 0.1);
         }
 
         .event-grid {
@@ -442,6 +514,9 @@
             .grid-3 {
                 grid-template-columns: 1fr;
             }
+            .exp-grid {
+                grid-template-columns: 1fr;
+            }
         }
 
         @media (max-width: 480px) {
@@ -473,6 +548,7 @@
             </a>
             <nav class="nav">
                 <a href="#que-hacemos">Qué hacemos</a>
+                <a href="#experiencias">Experiencias</a>
                 <a href="#encuentros">Encuentros</a>
                 <a href="#espacio">Espacio</a>
                 <a href="#socio">Hazte socio</a>
@@ -484,9 +560,9 @@
     <section class="hero">
         <div class="container">
             <h1>El <span>Mojón</span></h1>
-            <p class="sub">Un lugar donde el arte y la lengua se encuentran</p>
+            <p class="sub">Un lugar donde el arte, la naturaleza y el encuentro se funden</p>
             <div class="cta-group">
-                <a href="#encuentros" class="btn btn-primary">Próximos encuentros</a>
+                <a href="#experiencias" class="btn btn-primary">Vive la experiencia</a>
                 <a href="#socio" class="btn btn-outline">Hazte socio — 5€</a>
             </div>
         </div>
@@ -509,10 +585,56 @@
                     <span class="tag">Comunidad</span>
                 </div>
                 <div class="card">
-                    <h3>Espacio</h3>
-                    <p>Un rincón con alma de acuarela en Tenerife. Para crear, compartir y sentir.</p>
-                    <span class="tag">Hogar</span>
+                    <h3>Experiencias</h3>
+                    <p>Yoga, ceremonias de té, cine canario y cocina con alma. El volcán como escenario.</p>
+                    <span class="tag">Naturaleza</span>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== EXPERIENCIAS (НОВАЯ СЕКЦИЯ) ===== -->
+    <section id="experiencias" class="experiencias">
+        <div class="container">
+            <h2 class="section-title">Experiencias en el volcán</h2>
+            <p class="section-sub">Actividades para conectar con el paisaje, el cuerpo y el sabor</p>
+            <div class="exp-grid">
+
+                <div class="exp-card">
+                    <span class="emoji-big">🍵</span>
+                    <h4>Ceremonia de té en el volcán</h4>
+                    <p>Una pausa al atardecer. Té servido con respeto, rodeados de piedra volcánica y silencio.</p>
+                    <span class="exp-tag tea">Té · conexión</span>
+                </div>
+
+                <div class="exp-card">
+                    <span class="emoji-big">🧘</span>
+                    <h4>Yoga al amanecer</h4>
+                    <p>Práctica suave con vistas al Teide. El sol sale mientras el cuerpo despierta.</p>
+                    <span class="exp-tag yoga">Yoga · naturaleza</span>
+                </div>
+
+                <div class="exp-card">
+                    <span class="emoji-big">🥞</span>
+                    <h4>Eco-desayuno</h4>
+                    <p>Productos locales, pan artesano, fruta de temporada y miel de la isla. Con vistas.</p>
+                    <span class="exp-tag food">Comida · sostenible</span>
+                </div>
+
+                <div class="exp-card">
+                    <span class="emoji-big">🍮</span>
+                    <h4>Taller de caramelo casero</h4>
+                    <p>Aprende a hacer caramelo con leche de cabra y caña de azúcar. Dulce y artesanal.</p>
+                    <span class="exp-tag food">Cocina · tradición</span>
+                </div>
+
+                <div class="exp-card">
+                    <span class="emoji-big">🎬</span>
+                    <h4>Cine canario · cortos</h4>
+                    <p>Proyección de cortometrajes hechos en las islas. Historias de mar, volcán y gente.</p>
+                    <span class="exp-tag film">Cine · cultura</span>
+                </div>
+
             </div>
         </div>
     </section>
@@ -555,8 +677,7 @@
                     una mesa larga para compartir. En Arona, Tenerife, con el volcán al fondo.
                 </p>
                 <p>
-                    Aquí las exposiciones conviven con las charlas, la música y el español
-                    que se aprende entre risas.
+                    Aquí las exposiciones conviven con las charlas, la música, el té y la calma.
                 </p>
                 <a href="#socio" class="btn btn-primary">Visítanos</a>
             </div>
